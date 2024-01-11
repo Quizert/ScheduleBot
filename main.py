@@ -1,10 +1,10 @@
 import telebot
 import config
-import get_scedule
+import get_schedule
 import time_controller
 from telebot import types
 
-schedule = get_scedule.Schedule().GetSchedule()
+schedule = get_schedule.Schedule().GetSchedule()
 bot = telebot.TeleBot(config.TOKEN)
 
 time_controller = time_controller.Timer()
@@ -16,7 +16,7 @@ def welcome(message):
     time_controller.SetCurrentTime()
 
     if time_controller.isGood():
-        schedule = get_scedule.Schedule().GetSchedule()
+        schedule = get_schedule.Schedule().GetSchedule()
         time_controller.SetPrevData()
 
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -38,7 +38,7 @@ def text(message):
     time_controller.SetCurrentTime()
 
     if time_controller.isGood():
-        schedule = get_scedule.Schedule().GetSchedule()
+        schedule = get_schedule.Schedule().GetSchedule()
         time_controller.SetPrevData()
 
         
